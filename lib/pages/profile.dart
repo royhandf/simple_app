@@ -1,27 +1,38 @@
 import 'package:flutter/material.dart';
 import '../utils/data.dart';
-import 'description.dart';
+import 'biodata.dart';
 
-class profilemember extends StatefulWidget {
+class ListMember extends StatefulWidget {
+  const ListMember({super.key});
+
   @override
-  State<profilemember> createState() => _profilememberState();
+  State<ListMember> createState() => _ListMemberState();
 }
 // final int? indexku;
 
-class _profilememberState extends State<profilemember> {
+class _ListMemberState extends State<ListMember> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Manage Customers"),
+        title: const Text("List Member"),
       ),
       body: ListView.builder(
         itemCount: members.length,
         itemBuilder: (context, index) => Container(
-          margin: EdgeInsets.only(bottom: 5),
+          margin: const EdgeInsets.only(top: 10),
           child: ListTile(
-            leading: CircleAvatar(),
+            leading: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                image: DecorationImage(
+                    image: AssetImage("assets/${members[index]['profile']}"),
+                    fit: BoxFit.cover),
+              ),
+              height: 50,
+              width: 50,
+            ),
             title: Text(members[index]['name']),
             onTap: () {
               final int urutan = index;
@@ -29,7 +40,7 @@ class _profilememberState extends State<profilemember> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return biodata(urutan);
+                    return Biodata(urutan);
                   },
                 ),
               );

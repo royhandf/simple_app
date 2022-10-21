@@ -3,9 +3,9 @@ import '../utils/data.dart';
 import 'login.dart';
 import 'profile.dart';
 
-class menu extends StatelessWidget {
+class Menu extends StatelessWidget {
   final int indexdata;
-  const menu(this.indexdata);
+  const Menu(this.indexdata);
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class menu extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => loginpage(),
+                      builder: (context) => LoginPage(),
                     ));
               },
             ),
@@ -65,7 +65,7 @@ class menu extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return profilemember();
+                      return ListMember();
                     },
                   ),
                 );

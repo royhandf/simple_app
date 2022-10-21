@@ -4,14 +4,14 @@ import 'menu.dart';
 import 'profile.dart';
 import 'package:fluttericon/elusive_icons.dart';
 
-class loginpage extends StatefulWidget {
-  const loginpage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  State<loginpage> createState() => _loginpageState();
+  State<LoginPage> createState() => _loginpageState();
 }
 
-class _loginpageState extends State<loginpage> {
+class _loginpageState extends State<LoginPage> {
   bool isHidden = true;
 
   TextEditingController password = TextEditingController();
@@ -118,7 +118,7 @@ class _loginpageState extends State<loginpage> {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return menu(indexdata);
+                          return Menu(indexdata);
                         },
                       ),
                     );
