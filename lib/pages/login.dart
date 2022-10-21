@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../data/data.dart';
-import 'package:simple_app/page/menu.dart';
-import 'package:simple_app/page/profile.dart';
+import '../utils/data.dart';
+import 'menu.dart';
+import 'profile.dart';
 import 'package:fluttericon/elusive_icons.dart';
 
 class loginpage extends StatefulWidget {
