@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import '../utils/data.dart';
 import 'login.dart';
-import 'profile.dart';
+import 'members.dart';
 
 class Menu extends StatelessWidget {
   final int indexdata;
-  const Menu(this.indexdata);
+  const Menu(this.indexdata, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class Menu extends StatelessWidget {
           children: [
             Container(
               // alignment: Alignment.bottomLeft,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               width: double.infinity,
               height: 200,
               color: Colors.lightBlue[200],
@@ -26,7 +26,6 @@ class Menu extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
-                        color: Color.fromARGB(123, 1, 50, 100),
                         image: DecorationImage(
                             image: AssetImage(
                                 "assets/${members[indexdata]['profile']}"),
@@ -34,9 +33,9 @@ class Menu extends StatelessWidget {
                       ),
                       height: 125,
                       width: 125,
-                      margin: EdgeInsets.only(top: 20),
+                      margin: const EdgeInsets.only(top: 20),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text("${members[indexdata]['name']}"),
@@ -45,9 +44,9 @@ class Menu extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.home),
-              title: Text("Home"),
-              trailing: Icon(Icons.chevron_right),
+              leading: const Icon(Icons.home),
+              title: const Text("Home"),
+              trailing: const Icon(Icons.chevron_right),
               onTap: () {
                 Navigator.push(
                     context,
@@ -57,15 +56,15 @@ class Menu extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.equalizer),
-              title: Text("Members"),
-              trailing: Icon(Icons.chevron_left),
+              leading: const Icon(Icons.equalizer),
+              title: const Text("Members"),
+              trailing: const Icon(Icons.chevron_left),
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return ListMember();
+                      return const ListMember();
                     },
                   ),
                 );
@@ -75,7 +74,7 @@ class Menu extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Text("Ini adalah halaman ${members[indexdata]['name']}"),
+        child: Text("Selamat Datang ${members[indexdata]['name']}"),
       ),
     );
   }

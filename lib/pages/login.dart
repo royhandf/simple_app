@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import '../utils/data.dart';
 import 'menu.dart';
-import 'profile.dart';
 import 'package:fluttericon/elusive_icons.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _loginpageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _loginpageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> {
   bool isHidden = true;
 
   TextEditingController password = TextEditingController();
@@ -24,41 +23,41 @@ class _loginpageState extends State<LoginPage> {
         child: Container(
           color: Colors.white24,
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Sign In",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 "Hi there! Nice to see you again.",
                 style: TextStyle(fontWeight: FontWeight.w300, fontSize: 20),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
                 controller: username,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   label: Text('username'),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               TextField(
                 controller: password,
                 obscureText: isHidden,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    label: Text('password'),
+                    border: const OutlineInputBorder(),
+                    label: const Text('password'),
                     suffixIcon: IconButton(
                       icon: (isHidden
                           ? const Icon(Elusive.eye)
@@ -74,25 +73,29 @@ class _loginpageState extends State<LoginPage> {
                       },
                     )),
               ),
-              newMethod(),
+              const SizedBox(
+                height: 20,
+              ),
               GestureDetector(
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.blue,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   // color: Colors.blue,
                   height: 50,
                   width: double.infinity,
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     "Sign In",
-                    style: TextStyle(fontSize: 25),
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                    ),
                   )),
                 ),
                 onTap: () {
                   int indexdata = login();
-                  // print(indexdata);
                   if (indexdata == -2) {
                     showDialog(
                       context: context,
@@ -100,13 +103,14 @@ class _loginpageState extends State<LoginPage> {
                       builder: (context) {
                         return AlertDialog(
                           title: const Text(
-                              "username dan password yg Anda masukkan salah"),
+                            "username dan password yg Anda masukkan salah",
+                          ),
                           actions: [
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: Text("Exit"),
+                              child: const Text("Exit"),
                             )
                           ],
                         );
@@ -122,9 +126,7 @@ class _loginpageState extends State<LoginPage> {
                         },
                       ),
                     );
-                    print("Hello Nilai index data adalah $indexdata");
                   }
-                  // print("username dan password yg Anda masukkan salah");
                 },
               )
             ],
@@ -134,16 +136,15 @@ class _loginpageState extends State<LoginPage> {
     );
   }
 
-  SizedBox newMethod() {
-    return SizedBox(
-      height: 20,
-    );
-  }
+  // SizedBox newMethod() {
+  //   return const SizedBox(
+  //     height: 20,
+  //   );
+  // }
 
   login() {
     int? index;
     for (var i = 0; i < members.length; i++) {
-      print(members[i]['username']);
       if (username.text == members[i]['username'] &&
           password.text == members[i]['password']) {
         index = i;

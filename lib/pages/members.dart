@@ -8,7 +8,6 @@ class ListMember extends StatefulWidget {
   @override
   State<ListMember> createState() => _ListMemberState();
 }
-// final int? indexku;
 
 class _ListMemberState extends State<ListMember> {
   @override
@@ -20,8 +19,9 @@ class _ListMemberState extends State<ListMember> {
       ),
       body: ListView.builder(
         itemCount: members.length,
-        itemBuilder: (context, index) => Container(
-          margin: const EdgeInsets.only(top: 10),
+        itemBuilder: (context, index) => Card(
+          elevation: 3.0,
+          margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
           child: ListTile(
             leading: Container(
               decoration: BoxDecoration(
@@ -34,6 +34,7 @@ class _ListMemberState extends State<ListMember> {
               width: 50,
             ),
             title: Text(members[index]['name']),
+            subtitle: Text(members[index]['nim']),
             onTap: () {
               final int urutan = index;
               Navigator.push(
