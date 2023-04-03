@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import '../utils/data.dart';
 
@@ -11,7 +9,22 @@ class Biodata extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        toolbarHeight: 80,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      body: SizedBox(
         height: double.infinity,
         width: double.infinity,
         child: Column(
