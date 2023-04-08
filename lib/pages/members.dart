@@ -14,8 +14,19 @@ class _ListMemberState extends State<ListMember> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: const Text("List Member"),
+        automaticallyImplyLeading: false,
+        toolbarHeight: 80,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: ListView.builder(
         itemCount: members.length,
